@@ -24,9 +24,10 @@ const VoiceInput = ({ onResult }) => {
   };
 
   return (
-    <button onClick={handleVoice}>
-      {listening ? 'Listening...' : '🎤 Add by Voice'}
-    </button>
+    <button onClick={handleVoice} className="voice-button">
+  {listening ? 'Listening...' : '🎤 Add by Voice'}
+</button>
+
   );
 };
 

@@ -1,68 +1,102 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f6f8;
+/* Global Reset and Base */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* App Container */
 .App {
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
   padding: 20px;
 }
 
+/* Header */
 h1 {
   text-align: center;
-  color: #333;
+  margin-bottom: 30px;
+  color: #2d3748;
 }
 
+/* Form Styles */
 form {
-  background-color: white;
+  background-color: #ffffff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 form input,
 form textarea,
 form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #cbd5e0;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #4caf50;
 }
 
 form button {
+  padding: 12px;
+  font-size: 16px;
   background-color: #4caf50;
-  color: white;
-  padding: 10px 16px;
+  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.2s ease;
 }
 
 form button:hover {
-  background-color: #45a049;
+  background-color: #43a047;
 }
 
-button {
-  margin-top: 10px;
+/* Voice Button */
+button.voice-button {
+  background-color: #2196f3;
+  margin-top: -10px;
 }
 
+button.voice-button:hover {
+  background-color: #1976d2;
+}
+
+/* Task List Container */
 .task-list {
-  background-color: white;
+  background-color: #ffffff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
+.task-list h2 {
+  margin-bottom: 15px;
+  color: #2d3748;
+}
+
+/* Task Card */
 .task-item {
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 0;
 }
 
 .task-item:last-child {
@@ -70,11 +104,28 @@ button {
 }
 
 .task-item h3 {
-  margin: 0;
-  color: #222;
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: #2c5282;
 }
 
 .task-item p {
-  margin: 4px 0;
   font-size: 14px;
+  margin: 4px 0;
+  color: #4a5568;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .App {
+    padding: 15px;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  .task-list {
+    padding: 15px;
+  }
 }

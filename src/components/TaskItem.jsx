@@ -1,4 +1,3 @@
-// components/TaskItem.js
 import React from 'react';
 
 const TaskItem = ({ task, onDelete, onToggle, onEdit }) => {
@@ -6,12 +5,7 @@ const TaskItem = ({ task, onDelete, onToggle, onEdit }) => {
     <div className="card h-100">
       <div className="card-body">
         <h5 className="card-title">
-          <input
-            type="checkbox"
-            className="form-check-input me-2"
-            checked={task.status === 'Completed'}
-            onChange={() => onToggle(task.id)}
-          />
+          <input type="checkbox" className="form-check-input me-2" checked={task.status === 'Completed'} onChange={() => onToggle(task.id)} />
           {task.title}
         </h5>
         <p className="card-text">{task.description}</p>

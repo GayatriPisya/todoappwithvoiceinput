@@ -1,4 +1,3 @@
-// components/TaskForm.jsx
 import React, { useState, useEffect } from 'react';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -21,18 +20,16 @@ const TaskForm = ({ onSubmit, initialData }) => {
   }, [initialData]);
 
   const handleVoiceInput = (setter) => {
-    if (!SpeechRecognition) return alert('Voice input not supported.');
+    if (!SpeechRecognition) return alert('Speech Recognition not supported');
     const recognition = new SpeechRecognition();
     recognition.lang = 'en-US';
     recognition.start();
-    recognition.onresult = (event) => {
-      const text = event.results[0][0].transcript;
-      setter(text);
-    };
+    recognition.onresult = (e) => setter(e.results[0][0].transcript);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title.trim()) return alert('Title is required');
     onSubmit({ title, description, priority, status, dueDate });
     setTitle('');
     setDescription('');
@@ -46,32 +43,15 @@ const TaskForm = ({ onSubmit, initialData }) => {
       <div className="form-group">
         <label>Title</label>
         <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <button
-            type="button"
-            className="btn btn-outline-secondary"
-            onClick={() => handleVoiceInput(setTitle)}
-          >🎤</button>
+          <input className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <button type="button" className="btn btn-outline-secondary" onClick={() => handleVoiceInput(setTitle)}>🎤</button>
         </div>
       </div>
       <div className="form-group">
         <label>Description</label>
         <div className="input-group">
-          <textarea
-            className="form-control"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-          <button
-            type="button"
-            className="btn btn-outline-secondary"
-            onClick={() => handleVoiceInput(setDescription)}
-          >🎤</button>
+          <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <button type="button" className="btn btn-outline-secondary" onClick={() => handleVoiceInput(setDescription)}>🎤</button>
         </div>
       </div>
       <div className="form-group">
@@ -91,12 +71,7 @@ const TaskForm = ({ onSubmit, initialData }) => {
       </div>
       <div className="form-group">
         <label>Due Date</label>
-        <input
-          type="date"
-          className="form-control"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-        />
+        <input type="date" className="form-control" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
       </div>
       <button className="btn btn-success mt-3" type="submit">{initialData ? 'Update' : 'Add'} Task</button>
     </form>

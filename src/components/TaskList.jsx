@@ -1,25 +1,17 @@
+// components/TaskList.jsx
 import React from 'react';
+import TaskItem from './TaskItem';
 
-const TaskList = ({ tasks }) => {
-  if (!tasks.length) {
-    return <p>No tasks available.</p>;
-  }
-
+const TaskList = ({ tasks, onDelete, onToggle, onEdit }) => {
+  if (!tasks.length) return <p className="text-muted">No tasks to display.</p>;
   return (
-   <div className="task-list">
-  <h2>Task List</h2>
-  <ul>
-    {tasks.map((task, index) => (
-      <li className="task-item" key={index}>
-        <h3>{task.title}</h3>
-        <p>{task.description}</p>
-        <p>Priority: <strong>{task.priority}</strong></p>
-        <p>Status: <em>{task.status || 'Pending'}</em></p>
-      </li>
-    ))}
-  </ul>
-</div>
-
+    <div className="row">
+      {tasks.map(task => (
+        <div key={task.id} className="col-md-6 mb-3">
+          <TaskItem task={task} onDelete={onDelete} onToggle={onToggle} onEdit={onEdit} />
+        </div>
+      ))}
+    </div>
   );
 };
 

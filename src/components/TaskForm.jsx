@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'; // Import microphone icon
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -43,20 +45,44 @@ const TaskForm = ({ onSubmit, initialData }) => {
       <div className="form-group">
         <label>Title</label>
         <div className="input-group">
-          <input className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
-          <button type="button" className="btn btn-outline-secondary" onClick={() => handleVoiceInput(setTitle)}>🎤</button>
+          <input
+            className="form-control"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <button
+            type="button"
+            className="btn btn-outline-secondary"
+            onClick={() => handleVoiceInput(setTitle)}
+          >
+            <FontAwesomeIcon icon={faMicrophone} /> {/* FontAwesome Icon */}
+          </button>
         </div>
       </div>
       <div className="form-group">
         <label>Description</label>
         <div className="input-group">
-          <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
-          <button type="button" className="btn btn-outline-secondary" onClick={() => handleVoiceInput(setDescription)}>🎤</button>
+          <textarea
+            className="form-control"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <button
+            type="button"
+            className="btn btn-outline-secondary"
+            onClick={() => handleVoiceInput(setDescription)}
+          >
+            <FontAwesomeIcon icon={faMicrophone} /> {/* FontAwesome Icon */}
+          </button>
         </div>
       </div>
       <div className="form-group">
         <label>Priority</label>
-        <select className="form-control" value={priority} onChange={(e) => setPriority(e.target.value)}>
+        <select
+          className="form-control"
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+        >
           <option>High</option>
           <option>Medium</option>
           <option>Low</option>
@@ -64,16 +90,27 @@ const TaskForm = ({ onSubmit, initialData }) => {
       </div>
       <div className="form-group">
         <label>Status</label>
-        <select className="form-control" value={status} onChange={(e) => setStatus(e.target.value)}>
+        <select
+          className="form-control"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        >
           <option>Pending</option>
           <option>Completed</option>
         </select>
       </div>
       <div className="form-group">
         <label>Due Date</label>
-        <input type="date" className="form-control" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+        <input
+          type="date"
+          className="form-control"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
       </div>
-      <button className="btn btn-success mt-3" type="submit">{initialData ? 'Update' : 'Add'} Task</button>
+      <button className="btn btn-success mt-3" type="submit">
+        {initialData ? 'Update' : 'Add'} Task
+      </button>
     </form>
   );
 };

@@ -9,20 +9,21 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f0f2f5;
   color: #333;
+  line-height: 1.5;
 }
 
 /* App Container */
 .App {
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
 }
 
-/* Header */
 h1 {
   text-align: center;
   margin-bottom: 30px;
   color: #2d3748;
+  font-size: 2rem;
 }
 
 /* Form Styles */
@@ -91,6 +92,7 @@ button.voice-button:hover {
 .task-list h2 {
   margin-bottom: 15px;
   color: #2d3748;
+  font-size: 1.5rem;
 }
 
 /* Task Card */
@@ -116,7 +118,7 @@ button.voice-button:hover {
 }
 
 /* Responsive */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .App {
     padding: 15px;
   }
@@ -127,5 +129,59 @@ button.voice-button:hover {
 
   .task-list {
     padding: 15px;
+  }
+
+  .task-item h3 {
+    font-size: 16px;
+  }
+
+  .task-item p {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  .task-list {
+    padding: 10px;
+  }
+
+  .task-item h3 {
+    font-size: 14px;
+  }
+
+  .task-item p {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .input-group input {
+    width: 80%;
+  }
+
+  .input-group .input-group-text {
+    width: 20%;
+  }
+
+  .task-item {
+    padding: 10px 0;
   }
 }

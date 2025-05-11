@@ -1,34 +1,20 @@
 import React, { useState } from 'react';
+import VoiceInput from './VoiceInput'; // Import the VoiceInput component
 
-// This component will listen to your voice and pass the text to another component
-const VoiceInput = ({ onResult }) => {
-  const [listening, setListening] = useState(false);
+const ParentComponent = () => {
+  const [taskText, setTaskText] = useState('');
 
-  const handleVoice = () => {
-    const recognition = new window.webkitSpeechRecognition(); // built-in browser tool
-    recognition.lang = 'en-US'; // language
-    recognition.interimResults = false; // only final results
-    recognition.maxAlternatives = 1; // best match only
-
-    // show "Listening..." while the mic is on
-    recognition.onstart = () => setListening(true);
-    recognition.onend = () => setListening(false);
-
-    // when speech is recognized
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript; // get the text
-      onResult(transcript); // send it to the parent
-    };
-
-    recognition.start(); // begin listening
+  const handleVoiceResult = (text) => {
+    setTaskText(text); // Update task text with recognized speech
   };
 
   return (
-    <button onClick={handleVoice} className="voice-button">
-  {listening ? 'Listening...' : '🎤 Add by Voice'}
-</button>
-
+    <div>
+      <h1>Voice Input Example</h1>
+      <VoiceInput onResult={handleVoiceResult} />
+      <p>Recognized Text: {taskText}</p>
+    </div>
   );
 };
 
-export default VoiceInput;
+export default ParentComponent;

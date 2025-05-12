@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
-import { faMicrophone } from '@fortawesome/free-solid-svg-icons'; // Import microphone icon
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'; 
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 

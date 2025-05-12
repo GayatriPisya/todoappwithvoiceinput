@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import VoiceInput from './VoiceInput'; // Import the VoiceInput component
+import VoiceInput from './VoiceInput'; 
 
 const ParentComponent = () => {
   const [taskText, setTaskText] = useState('');
 
   const handleVoiceResult = (text) => {
-    setTaskText(text); // Update task text with recognized speech
+    setTaskText(text); 
   };
 
   return (
